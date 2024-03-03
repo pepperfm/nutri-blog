@@ -23,10 +23,14 @@ class JsonResponder implements ResponseContract
      */
     public function response(
         array|Collection $data,
+        array $meta = [],
         string $message = 'Success',
         int $httpStatusCode = JsonResponse::HTTP_OK
     ): JsonResponse {
-        return response()->json($data, $httpStatusCode, $this->headers, JSON_UNESCAPED_UNICODE);
+        return response()->json([
+            'entities' => $data,
+            'meta' => $meta,
+        ], $httpStatusCode, $this->headers, JSON_UNESCAPED_UNICODE);
     }
 
     /**

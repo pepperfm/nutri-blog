@@ -13,6 +13,7 @@ interface ResponseContract
      * Success response method
      *
      * @param array|Collection $data
+     * @param array $meta,
      * @param string $message
      * @param int $httpStatusCode
      *
@@ -20,6 +21,7 @@ interface ResponseContract
      */
     public function response(
         array|Collection $data,
+        array $meta = [],
         string $message = 'Success',
         int $httpStatusCode = JsonResponse::HTTP_OK
     ): JsonResponse;
